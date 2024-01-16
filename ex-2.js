@@ -2,6 +2,12 @@
 
 const singleNumber = function (nums) {
   // Start coding here
+  const allSet = new Set();
+  const acceptSet = new Set(nums);
+  for (let num of nums) {
+    allSet.has(num) ? acceptSet.delete(num) : allSet.add(num);
+  }
+  return acceptSet.values().next().value;
 };
 
 const result1 = singleNumber([2, 2, 1]);
